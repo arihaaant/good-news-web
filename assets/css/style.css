@@ -1178,7 +1178,7 @@ section {
 
 .doctors .member .pic {
   overflow: hidden;
-  width: 180px;
+  width: 50% vw;
   border-radius: 50%;
 }
 
