@@ -114,6 +114,15 @@
     onscroll(document, toggleBacktotop)
   }
 
+  /*=============== SHOW & HIDE MENU ===============*/
+const toggleButton = document.getElementById('floating-toggle')
+
+const activeMenu = () =>{
+    toggleButton.classList.toggle('active')
+}
+
+toggleButton.addEventListener('click', activeMenu)
+
   /**
    * Mobile nav toggle
    */
@@ -187,65 +196,132 @@
   });
 
 
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   const form = document.getElementById('contact-form');
+  //   const nameInput = document.getElementById('name');
+  //   const mobileInput = document.getElementById('mobile');
+  //   const countryCodeInput = document.getElementById('country-code');
+  //   const submitButton = document.getElementById('submit-button');
+  //   const countryCodeOutput = document.getElementById('country-code-output');
+
+  //   nameInput.addEventListener('input', toggleSubmitButton);
+  //   mobileInput.addEventListener('input', toggleSubmitButton);
+  //   countryCodeInput.addEventListener('change', toggleSubmitButton);
+  //   // countryCodeInput.addEventListener('change', updateCountryCodeOutput);
+
+  //   // function updateCountryCodeOutput() {
+  //   //   const countryCode = countryCodeInput.value;
+  //   //   const countryCodeOutput = document.getElementById('country-code-output');
+  //   //   if (countryCodeOutput) {
+  //   //     countryCodeOutput.textContent = `Selected Country Code: ${countryCode}`;
+  //   //   }
+  //   // }
+
+  //   function toggleSubmitButton() {
+  //     const name = nameInput.value.trim();
+  //     const mobile = mobileInput.value.trim();
+  //     const countryCode = countryCodeInput.value;
+  
+
+  //     const isNameValid = name.length > 0;
+  //     const isMobileValid = /^\d{10}$/.test(mobile);
+  //     const isCountryCodeSelected = countryCode !== '';
+
+  //     console.log(isNameValid,isMobileValid,isCountryCodeSelected)
+
+  //     submitButton.disabled = !(isNameValid && isMobileValid && isCountryCodeSelected);
+  //     // submitButton.classList.toggle('disabled', !(isNameValid && isMobileValid && isCountryCodeSelected));
+  //   }
+
+  //   // function updateCountryCodeOutput() {
+  //   //   const countryCode = countryCodeInput.value;
+  //   //   countryCodeOutput.textContent = `Selected Country Code: ${countryCode}`;
+  //   // }
+
+  //   form.addEventListener('submit', function(event) {
+  //     event.preventDefault();
+
+  //     console.log(
+  //     'button clicked'
+  //     )
+
+  //     const messageInput = document.querySelector('textarea[name="message"]')
+  //     const name = nameInput.value.trim();
+  //     const mobile = mobileInput.value.trim();
+  //     const countryCode = countryCodeInput.value;
+  //     const message = messageInput.value.trim();
+
+  //     const formData = {
+  //       name: name,
+  //       mobile: countryCode + mobile,
+  //       message: message
+  //     };
+
+  //     console.log(formData);
+
+  //     form.reset();
+  //   });
+  // });
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     const nameInput = document.getElementById('name');
     const mobileInput = document.getElementById('mobile');
     const countryCodeInput = document.getElementById('country-code');
+    const pincodeInput = document.getElementById('pincode');
     const submitButton = document.getElementById('submit-button');
     const countryCodeOutput = document.getElementById('country-code-output');
-
+    const messageInput = document.querySelector('textarea[name="message"]');
+  
     nameInput.addEventListener('input', toggleSubmitButton);
     mobileInput.addEventListener('input', toggleSubmitButton);
     countryCodeInput.addEventListener('change', toggleSubmitButton);
-    countryCodeInput.addEventListener('change', updateCountryCodeOutput);
-
-    function updateCountryCodeOutput() {
-      const countryCode = countryCodeInput.value;
-      const countryCodeOutput = document.getElementById('country-code-output');
-      if (countryCodeOutput) {
-        countryCodeOutput.textContent = `Selected Country Code: ${countryCode}`;
-      }
-    }
-
+    pincodeInput.addEventListener('input', toggleSubmitButton);
+  
     function toggleSubmitButton() {
       const name = nameInput.value.trim();
       const mobile = mobileInput.value.trim();
       const countryCode = countryCodeInput.value;
-
+      const pincode = pincodeInput.value.trim();
+  
       const isNameValid = name.length > 0;
       const isMobileValid = /^\d{10}$/.test(mobile);
       const isCountryCodeSelected = countryCode !== '';
-
-      submitButton.disabled = !(isNameValid && isMobileValid && isCountryCodeSelected);
-      submitButton.classList.toggle('disabled', !(isNameValid && isMobileValid && isCountryCodeSelected));
+      const isPincodeValid = /^[1-9]\d{5}$/.test(pincode);
+  
+      submitButton.disabled = !(isNameValid && isMobileValid && isCountryCodeSelected && isPincodeValid);
     }
-
+  
     function updateCountryCodeOutput() {
       const countryCode = countryCodeInput.value;
-      countryCodeOutput.textContent = `Selected Country Code: ${countryCode}`;
+      if (countryCodeOutput) {
+        countryCodeOutput.textContent = `Selected Country Code: ${countryCode}`;
+      }
     }
-
+  
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-
+  
       const name = nameInput.value.trim();
       const mobile = mobileInput.value.trim();
       const countryCode = countryCodeInput.value;
+      const pincode = pincodeInput.value.trim();
+      const district = document.getElementById('district').value.trim();
       const message = messageInput.value.trim();
-
+  
       const formData = {
         name: name,
         mobile: countryCode + mobile,
+        pincode: pincode,
+        district: district,
         message: message
       };
-
+  
       console.log(formData);
-
+  
       form.reset();
     });
   });
-
+  
 
   
 
