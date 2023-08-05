@@ -1760,7 +1760,7 @@ section {
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(234, 62%, 56%);
-  --icon-color: hsl(234, 12%, 24%);
+  --icon-color: hsl(0, 0%, 100%);
   --body-color: hsl(234, 48%, 97%);
   --container-color: hsl(234, 100%, 99%);
 }
@@ -1782,12 +1782,12 @@ a {
   display: grid;
   place-items: center;
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 50px;
+  bottom: 50px;
   z-index: 996;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 1px;
   transition: all 0.4s;
 }
 .floating__container {
@@ -1798,7 +1798,7 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: var(--container-color);
+  
 }
 .floating__toggle {
   width: 70px;
@@ -1815,7 +1815,7 @@ a {
   transition: transform 0.8s ease-in-out;
 }
 .floating__toggle:hover {
-  /* box-shadow: 6px 6px 24px hsl(234, 48%, 98%), -6px -6px 24px hsl(234, 48%, 88%), inset -6px -6px 24px hsl(234, 48%, 98%), inset 6px 6px 24px hsl(234, 48%, 88%); */
+ 
   transform: scale(0.95);
 }
 .floating__icon, .floating__link {
@@ -1825,12 +1825,22 @@ a {
 .floating__icon {
   font-size: 1rem;
   color: var(--icon-color);
-  box-shadow: -4px -4px 16px hsl(234, 48%, 98%), 4px 4px 16px hsl(234, 48%, 90%), inset 4px 4px 16px hsl(234, 48%, 98%), inset -4px -4px 16px hsl(234, 48%, 90%);
+  /* box-shadow: -4px -4px 16px hsl(234, 48%, 98%), 4px 4px 16px hsl(234, 48%, 90%), inset 4px 4px 16px hsl(234, 48%, 98%), inset -4px -4px 16px hsl(234, 48%, 90%); */
   transition: box-shadow 0.3s ease-in-out;
+  border: 3px solid hsl(234, 48%, 90%); /* Border color */
+  border-radius: 50%; /* Make it circular by setting border-radius to 50% */
+  background-color: hsl(234, 48%, 98%); /* Background color */
 }
-.floating__icon:hover {
-  box-shadow: 4px 4px 16px hsl(234, 48%, 98%), -4px -4px 16px hsl(234, 48%, 90%), inset -4px -4px 16px hsl(234, 48%, 98%), inset 4px 4px 16px hsl(234, 48%, 90%);
-}
+
+.whatsapp{
+  background-color: #25D366;}
+
+.callback{  background-color:#34B7F1}
+
+/* .floating__icon:hover {
+  box-shadow: 4px 4px 16px hsl(234, 48%, 98%), -4px -4px 16px hsl(234, 48%, 90%), inset -4px -4px 16px hsl(234, 48%, 98%), inset 4px 4px 16px hsl(234, 48%, 90%); 
+} */
+
 .floating__link {
   position: absolute;
   inset: 0;
