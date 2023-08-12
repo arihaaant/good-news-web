@@ -519,6 +519,7 @@ h6 {
   #hero {
     margin-bottom: 0;
     height: 100vh;
+    background-position: 70% 100%;
   }
 
   #hero .container {
@@ -790,9 +791,15 @@ section {
 }
 
 .about .video-box {
-  background: url("../img/camp.jpeg") center center no-repeat;
+  background: url("../img/camp.jpeg") center center  no-repeat;
   background-size: cover;
-  min-height: 500px;
+  min-height: 300px;
+}
+
+@media (min-width: 1199px) {
+  .video-box {
+    background-position: 87% 100% !important;
+  }
 }
 
 .about .play-btn {
